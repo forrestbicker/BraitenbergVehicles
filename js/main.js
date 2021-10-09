@@ -9,6 +9,7 @@ function setup() {
     u = new Universe();
     g = new Gyro(u, 70, 110);
     addingVehicle = Vehicles.VEHICLE1;
+    addingSource = false;
     updateFriction(document.getElementById("friction-slider").value);
 
     pg = createGraphics(MAP_SIZE, MAP_SIZE);
@@ -44,7 +45,7 @@ function draw() {
 
 function mouseClicked() {
     let vehicle;
-    if (mouseX > 0 && mouseY > 0) {
+    if (mouseX > 0 && mouseY > 0 && !addingSource) {
         switch (addingVehicle) {
             case Vehicles.VEHICLE1:
                 vehicle = Vehicle1(u, mouseX / PIXEL_SIZE, mouseY / PIXEL_SIZE);
@@ -58,6 +59,7 @@ function mouseClicked() {
         }
         renderers.push(new Renderer(vehicle));
         u.addRobot(vehicle);
+    } else if (mouseX > 0 && mouseY > 0) {
+        u.sources.push(new Source(mouseX / PIXEL_SIZE, mouseY / PIXEL_SIZE));
     }
 }
-

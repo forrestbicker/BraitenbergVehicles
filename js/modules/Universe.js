@@ -1,8 +1,9 @@
 class Universe {
     // creates a universe
     constructor() {
-        this.stimuli = generateTerrain(MAP_RESOLUTION)
-        this.robots = []
+        this.sources = [];
+        this.stimuli = generateTerrain(MAP_RESOLUTION);
+        this.robots = [];
     }
 
     draw() {

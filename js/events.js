@@ -5,6 +5,7 @@ document.querySelector("#add-vehicle-button").addEventListener("click", () => {
 let simulationPaused = true;
 let startStopButton = document.querySelector("#start-stop-button");
 startStopButton.addEventListener("click", () => {
+    addingSource = false;
     if (simulationPaused) {
         startStopButton.innerText = "Stop";
         startStopButton.style.color = "#FFFFFF";
@@ -16,6 +17,10 @@ startStopButton.addEventListener("click", () => {
     }
     simulationPaused = !simulationPaused;
 })
+
+document.querySelector("#add-source-button").addEventListener("click", () => {
+    addingSource = true;
+});
 
 function updateFriction(value) {
     frictionMagnitude = parseInt(value);

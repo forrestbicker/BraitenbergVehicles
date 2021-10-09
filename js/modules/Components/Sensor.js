@@ -16,4 +16,12 @@ class Sensor extends Component {
         }
     }
 
+    getValue() {
+        let y = Math.round(this.getR().y);
+        let x = Math.round(this.getR().x);
+        for (let source of this.gyro.universe.sources) {
+            
+        }
+    }
+
 }
